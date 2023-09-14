@@ -8,7 +8,7 @@ export default function SearchIcon({ width, height }) {
       height={height}
     >
       <g
-        fill="#ffffff"
+        fill="#6dd19c"
         fillRule="nonzero"
         stroke="none"
         strokeWidth="1"
