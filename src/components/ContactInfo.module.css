@@ -1,14 +1,17 @@
 .tr {
+  position: relative;
   text-align: center;
   cursor: pointer;
   border-bottom: 1px solid #38815a4c;
+  font-size: 0.8rem;
 }
 
 .td {
   padding: 2%;
 }
 
-.tr:hover {
+.tr:hover,
+.contact:hover {
   border: 1px solid #38815a;
   background-color: rgb(243, 243, 243);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -26,7 +29,6 @@
   height: 30px;
   text-align: center;
   border: none;
-  /* background-color: #38815a; */
   background-color: #ec695f;
   color: white;
   font-size: 10px;
@@ -34,4 +36,13 @@
 
 .td .btnFav:hover {
   color: #6dd19c;
+}
+
+.contact {
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  color: #3c5657;
+  padding: 5%;
+  border-bottom: 1px solid #38815a4c;
 }

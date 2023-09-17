@@ -57,3 +57,35 @@
   padding: 1% 0;
   color: #3c5657;
 }
+
+@media (max-width: 768px) {
+  .name-container {
+    display: block;
+    margin-top: 2%;
+  }
+
+  .name-container .section:first-child {
+    padding-right: 3%;
+  }
+
+  .name-container .section:last-child {
+    padding-left: 3%;
+  }
+
+  .section {
+    font-size: 1rem;
+  }
+
+  .section .row-label {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #38815a4c;
+  }
+
+  .section h4 {
+    color: #6dd19c;
+  }
+
+  .action button {
+    margin: 2% 0 2% 2%;
+  }
+}

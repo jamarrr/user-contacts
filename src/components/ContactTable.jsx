@@ -6,10 +6,10 @@ export default function ContactTable({ children }) {
     <table className={styles["contact-list"]}>
       <thead>
         <tr>
-          <th className={styles.th}>Name</th>
-          <th className={styles.th}>Username</th>
-          <th className={styles.th}>Email</th>
-          <th className={styles.th}>Phone</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
         </tr>
       </thead>
       <tbody>{children}</tbody>

@@ -6,8 +6,19 @@
   font-family: "Raleway", sans-serif;
 }
 
-.contact-list .th {
+.contact-list thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.contact-list th {
   background-color: rgb(243, 243, 243);
   padding: 1%;
-  border: 1px solid #529f76;
+}
+
+@media (max-width: 768px) {
+  .contact-list {
+    display: none;
+  }
 }
