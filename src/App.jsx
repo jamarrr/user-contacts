@@ -75,6 +75,7 @@ export default function App() {
     window.addEventListener("resize", updateWindowDimension);
   }, []);
 
+  const [filteredContacts, setFilteredContacts] = useState([]);
   const [sortedContacts, setSortedContacts] = useState([]);
 
   useEffect(() => {
@@ -82,8 +83,19 @@ export default function App() {
       contact.name.toLowerCase().includes(searchKeyword.toLowerCase())
     );
 
-    setSortedContacts(contactsToSort);
+    setFilteredContacts(contactsToSort);
   }, [contacts, searchKeyword]);
+
+  useEffect(() => {
+    const sorted = contacts?.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      return nameA.localeCompare(nameB);
+    });
+
+    setSortedContacts(sorted);
+  }, [contacts]);
 
   return (
     <>
@@ -111,7 +123,7 @@ export default function App() {
           ) : (
             <Contacts
               windowDimension={windowDimension}
-              contacts={searchKeyword ? sortedContacts : contacts}
+              contacts={searchKeyword ? filteredContacts : sortedContacts}
               setSelectedContactId={setSelectedContactId}
             />
           )}
