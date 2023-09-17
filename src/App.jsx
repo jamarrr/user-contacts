@@ -114,19 +114,16 @@ export default function App() {
     <>
       <Header />
       <div className="content">
-        <div
-          className={`search-section ${
-            windowDimension.width <= 1024 && selectedContactId !== null
-              ? "hide"
-              : ""
-          }`}
-        >
-          <SearchBar
-            value={searchKeyword}
-            setValue={setSearchKeyword}
-            placeholder="Search user contact"
-          />
-        </div>
+        {!selectedContactId && (
+          <div className="search-section">
+            <SearchBar
+              value={searchKeyword}
+              setValue={setSearchKeyword}
+              placeholder="Search user contact"
+            />
+          </div>
+        )}
+
         <div className="contacts-section">
           {selectedContactId ? (
             <ContactDetails

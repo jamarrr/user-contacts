@@ -40,6 +40,15 @@
   color: #3c5657;
 }
 
+.section .row-label {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #38815a4c;
+}
+
+.section h4 {
+  color: #6dd19c;
+}
+
 .action {
   font-family: "Raleway", sans-serif;
   width: 100%;
@@ -74,15 +83,6 @@
 
   .section {
     font-size: 1rem;
-  }
-
-  .section .row-label {
-    font-size: 1.2rem;
-    border-bottom: 1px solid #38815a4c;
-  }
-
-  .section h4 {
-    color: #6dd19c;
   }
 
   .action button {

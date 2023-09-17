@@ -45,7 +45,7 @@ export default function ContactDetails({ selectedId, setSelectedContactId }) {
 
       <div className={styles.section}>
         <h3 className={styles["row-label"]}>Address</h3>
-        <h4>{`${contactDetails?.address?.suite}, ${contactDetails?.address?.street}, ${contactDetails?.address?.city} - Zipcode: ${contactDetails?.address?.zipcode}`}</h4>
+        <h4>{`${contactDetails?.address?.suite}, ${contactDetails?.address?.street}, ${contactDetails?.address?.city} (Zipcode: ${contactDetails?.address?.zipcode})`}</h4>
       </div>
 
       <div className={styles.section}>
