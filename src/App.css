@@ -8,7 +8,7 @@
 
 .content .search-section {
   width: 25%;
-  height: clamp(40vh, 40vh, 75vh);
+  height: 4vh;
   background-color: white;
   padding: 1%;
   border-radius: 10px;
@@ -44,6 +44,29 @@
 
 .hide {
   display: none;
+}
+
+.no-item {
+  cursor: pointer;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  color: #3c5657;
+  padding: 5%;
+}
+
+.search-section p {
+  font-size: 0.8rem;
+  padding: 1%;
+  font-family: "Raleway", sans-serif;
+  color: #3c5657;
+}
+
+.searched-contact {
+  color: #3c5657;
+  font-family: "Raleway", sans-serif;
+  padding: 2%;
+  width: 100%;
 }
 
 @media (max-width: 1024px) {

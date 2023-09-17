@@ -11,23 +11,35 @@ import "./App.css";
 
 function Contacts({ windowDimension, contacts, setSelectedContactId }) {
   return windowDimension?.width <= 768 ? (
-    contacts?.map((contact) => (
-      <ContactInfo
-        key={contact.id}
-        isMobile
-        contact={contact}
-        setSelectedContactId={setSelectedContactId}
-      />
-    ))
-  ) : (
-    <ContactTable>
-      {contacts?.map((contact) => (
+    contacts?.length === 0 ? (
+      <div className="no-item">No contact found.</div>
+    ) : (
+      contacts?.map((contact) => (
         <ContactInfo
           key={contact.id}
+          isMobile
           contact={contact}
           setSelectedContactId={setSelectedContactId}
         />
-      ))}
+      ))
+    )
+  ) : (
+    <ContactTable>
+      {contacts?.length === 0 ? (
+        <tr>
+          <td colSpan={4} className="no-item">
+            No contact found.
+          </td>
+        </tr>
+      ) : (
+        contacts?.map((contact) => (
+          <ContactInfo
+            key={contact.id}
+            contact={contact}
+            setSelectedContactId={setSelectedContactId}
+          />
+        ))
+      )}
     </ContactTable>
   );
 }
@@ -63,6 +75,28 @@ export default function App() {
     window.addEventListener("resize", updateWindowDimension);
   }, []);
 
+  const [filteredContacts, setFilteredContacts] = useState([]);
+  const [sortedContacts, setSortedContacts] = useState([]);
+
+  useEffect(() => {
+    const contactsToSort = contacts?.filter((contact) =>
+      contact.name.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
+
+    setFilteredContacts(contactsToSort);
+  }, [contacts, searchKeyword]);
+
+  useEffect(() => {
+    const sorted = contacts?.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      return nameA.localeCompare(nameB);
+    });
+
+    setSortedContacts(sorted);
+  }, [contacts]);
+
   return (
     <>
       <Header />
@@ -89,7 +123,7 @@ export default function App() {
           ) : (
             <Contacts
               windowDimension={windowDimension}
-              contacts={contacts}
+              contacts={searchKeyword ? filteredContacts : sortedContacts}
               setSelectedContactId={setSelectedContactId}
             />
           )}

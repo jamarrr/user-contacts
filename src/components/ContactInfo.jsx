@@ -9,12 +9,12 @@ export default function ContactInfo({
   return isMobile ? (
     <div
       className={styles.contact}
-      onClick={() => setSelectedContactId(contact?.id)}
+      onClick={() => setSelectedContactId(contact.id)}
     >
       {contact?.name ?? contact?.username}
     </div>
   ) : (
-    <tr className={styles.tr} onClick={() => setSelectedContactId(contact?.id)}>
+    <tr className={styles.tr} onClick={() => setSelectedContactId(contact.id)}>
       <td className={styles.td}>{contact?.name}</td>
       <td className={styles.td}>{contact?.username}</td>
       <td className={styles.td}>{contact?.email}</td>
