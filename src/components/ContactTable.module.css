@@ -1,0 +1,24 @@
+.contact-list {
+  width: 100%;
+  color: #3c5657;
+  letter-spacing: 1px;
+  border-collapse: collapse;
+  font-family: "Raleway", sans-serif;
+}
+
+.contact-list thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.contact-list th {
+  background-color: rgb(243, 243, 243);
+  padding: 1%;
+}
+
+@media (max-width: 768px) {
+  .contact-list {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.search-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  border: 1px solid #6dd19c;
+  border-radius: 10px;
+  padding: 2%;
+  background-color: rgb(243, 243, 243);
+  box-sizing: border-box;
+}
+
+.search-input .input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #529f76;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+}

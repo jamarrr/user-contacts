@@ -1,42 +1,79 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.content {
+  display: flex;
+  box-sizing: border-box;
+  gap: 1%;
+  width: 100%;
+  padding: 2%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.content .search-section {
+  width: 25%;
+  height: 4vh;
+  background-color: white;
+  padding: 1%;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  color: #001f40;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.content .contacts-section {
+  width: 75%;
+  background-color: white;
+  padding: 1%;
+  border-radius: 10px;
+  max-height: 78vh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  color: #001f40;
+  overflow-y: auto;
+}
+
+.content .contacts-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.content .contacts-section::-webkit-scrollbar-thumb {
+  background-color: #6dd19c6e;
+  border-radius: 5px;
+}
+
+.content .contacts-section::-webkit-scrollbar-thumb:hover {
+  background-color: #6dd19c;
+}
+
+.hide {
+  display: none;
+}
+
+.search-section p {
+  font-size: 0.8rem;
+  padding: 1%;
+  font-family: "Raleway", sans-serif;
+  color: #3c5657;
+}
+
+.searched-contact {
+  color: #3c5657;
+  font-family: "Raleway", sans-serif;
+  padding: 2%;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .content .search-section,
+  .content .contacts-section {
+    width: 98%;
+    flex: 1;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .content .search-section {
+    margin-bottom: 2%;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

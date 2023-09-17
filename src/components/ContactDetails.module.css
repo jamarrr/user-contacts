@@ -1,0 +1,91 @@
+.row-label:first-child {
+  margin-top: 1%;
+}
+
+.row-label {
+  width: 100%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid black;
+  margin-top: 0;
+}
+
+.name-container {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  gap: 10px;
+}
+
+.name-container .section {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  padding-inline: 0;
+  flex: 1;
+  color: #3c5657;
+}
+
+.name-container .section:first-child {
+  padding-inline-start: 3%;
+}
+
+.name-container .section:last-child {
+  padding-inline-end: 3%;
+}
+
+.section {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  padding-inline: 3%;
+  flex: 1;
+  color: #3c5657;
+}
+
+.action {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  margin-bottom: 1%;
+  color: #6dd19c;
+}
+
+.action .btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: none;
+  background-image: url("icons/back.png");
+  background-color: transparent;
+  padding: 1% 0;
+  color: #3c5657;
+}
+
+@media (max-width: 768px) {
+  .name-container {
+    display: block;
+    margin-top: 2%;
+  }
+
+  .name-container .section:first-child {
+    padding-right: 3%;
+  }
+
+  .name-container .section:last-child {
+    padding-left: 3%;
+  }
+
+  .section {
+    font-size: 1rem;
+  }
+
+  .section .row-label {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #38815a4c;
+  }
+
+  .section h4 {
+    color: #6dd19c;
+  }
+
+  .action button {
+    margin: 2% 0 2% 2%;
+  }
+}
