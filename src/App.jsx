@@ -11,23 +11,35 @@ import "./App.css";
 
 function Contacts({ windowDimension, contacts, setSelectedContactId }) {
   return windowDimension?.width <= 768 ? (
-    contacts?.map((contact) => (
-      <ContactInfo
-        key={contact.id}
-        isMobile
-        contact={contact}
-        setSelectedContactId={setSelectedContactId}
-      />
-    ))
-  ) : (
-    <ContactTable>
-      {contacts?.map((contact) => (
+    contacts?.length === 0 ? (
+      <div className="no-item">No contact found.</div>
+    ) : (
+      contacts?.map((contact) => (
         <ContactInfo
           key={contact.id}
+          isMobile
           contact={contact}
           setSelectedContactId={setSelectedContactId}
         />
-      ))}
+      ))
+    )
+  ) : (
+    <ContactTable>
+      {contacts?.length === 0 ? (
+        <tr>
+          <td colSpan={4} className="no-item">
+            No contact found.
+          </td>
+        </tr>
+      ) : (
+        contacts?.map((contact) => (
+          <ContactInfo
+            key={contact.id}
+            contact={contact}
+            setSelectedContactId={setSelectedContactId}
+          />
+        ))
+      )}
     </ContactTable>
   );
 }
@@ -63,6 +75,16 @@ export default function App() {
     window.addEventListener("resize", updateWindowDimension);
   }, []);
 
+  const [sortedContacts, setSortedContacts] = useState([]);
+
+  useEffect(() => {
+    const contactsToSort = contacts?.filter((contact) =>
+      contact.name.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
+
+    setSortedContacts(contactsToSort);
+  }, [contacts, searchKeyword]);
+
   return (
     <>
       <Header />
@@ -89,7 +111,7 @@ export default function App() {
           ) : (
             <Contacts
               windowDimension={windowDimension}
-              contacts={contacts}
+              contacts={searchKeyword ? sortedContacts : contacts}
               setSelectedContactId={setSelectedContactId}
             />
           )}
