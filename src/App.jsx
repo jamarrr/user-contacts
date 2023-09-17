@@ -9,9 +9,16 @@ import useSwr from "swr";
 
 import "./App.css";
 
-function Contacts({ windowDimension, contacts, setSelectedContactId }) {
+function Contacts({
+  windowDimension,
+  isLoadingContacts,
+  contacts,
+  setSelectedContactId,
+}) {
   return windowDimension?.width <= 768 ? (
-    contacts?.length === 0 ? (
+    isLoadingContacts ? (
+      <div className="no-item">Loading contact list...</div>
+    ) : contacts?.length === 0 ? (
       <div className="no-item">No contact found.</div>
     ) : (
       contacts?.map((contact) => (
@@ -25,7 +32,13 @@ function Contacts({ windowDimension, contacts, setSelectedContactId }) {
     )
   ) : (
     <ContactTable>
-      {contacts?.length === 0 ? (
+      {isLoadingContacts ? (
+        <tr>
+          <td colSpan={4} className="no-item">
+            Loading contact list...
+          </td>
+        </tr>
+      ) : contacts?.length === 0 ? (
         <tr>
           <td colSpan={4} className="no-item">
             No contact found.
@@ -57,7 +70,7 @@ export default function App() {
     return contacts.json();
   };
 
-  const { data: contacts } = useSwr("/api/users", fetchUserData);
+  const { data: contacts, isLoading } = useSwr("/api/users", fetchUserData);
 
   const [windowDimension, setWindowDimenstion] = useState({
     width: window.innerWidth,
@@ -122,6 +135,7 @@ export default function App() {
             />
           ) : (
             <Contacts
+              isLoadingContacts={isLoading}
               windowDimension={windowDimension}
               contacts={searchKeyword ? filteredContacts : sortedContacts}
               setSelectedContactId={setSelectedContactId}

@@ -16,7 +16,13 @@ export default function ContactDetails({ selectedId, setSelectedContactId }) {
   };
 
   // swr request for contact details
-  const { data: contactDetails } = useSwr(selectedId, fetchContactDetails);
+  const { data: contactDetails, isLoading } = useSwr(
+    selectedId,
+    fetchContactDetails
+  );
+
+  if (isLoading)
+    return <div className="no-item">Loading contact details...</div>;
 
   return (
     <>
