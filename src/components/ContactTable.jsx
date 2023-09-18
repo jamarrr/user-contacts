@@ -2,14 +2,15 @@
 import styles from "./ContactTable.module.css";
 
 export default function ContactTable({ children }) {
+  const headers = ["Name", "Username", "Email", "Phone"];
+
   return (
     <table className={styles["contact-list"]}>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Phone</th>
+          {headers.map((head) => (
+            <th key={head}>{head}</th>
+          ))}
         </tr>
       </thead>
       <tbody>{children}</tbody>
